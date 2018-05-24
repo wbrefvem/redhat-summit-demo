@@ -11,14 +11,14 @@ pipeline {
         echo 'We\'re testing'
       }
     }
-    stage('Checkpoint') {
-      steps {
-        checkpoint 'Checkpoint Charlie'
-      }
-    }
     stage('Deploy') {
       steps {
         echo 'We\'re deploying!'
+      }
+    }
+    stage('Notify') {
+      steps {
+        publishEvent simpleEvent('helloWorld')
       }
     }
   }
